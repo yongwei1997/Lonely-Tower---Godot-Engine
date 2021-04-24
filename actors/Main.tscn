@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/BulletManager.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=3]
+[ext_resource path="res://actors/Path2D_Enemy1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/Score.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/SpawnD.gd" type="Script" id=6]
+[ext_resource path="res://Image/tower.png" type="Texture" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 48, 48, 0, 0, 0, 0, 60, 67.1087, 0, 0, 0, 0, 136, 144, 0, 0, 0, 0, 240, 192, 0, 0, 0, 0, 304, 208, 0, 0, 0, 0, 368, 224, 0, 0, 0, 0, 440, 248, 0, 0, 0, 0, 496, 256, 0, 0, 0, 0, 696, 320, 0, 0, 0, 0, 744, 360, 0, 0, 0, 0, 800, 440, 0, 0, 0, 0, 864, 536, 0, 0, 0, 0, 784, 568, 0, 0, 0, 0, 688, 552, 0, 0, 0, 0, 600, 544 )
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Tower" type="Sprite" parent="."]
+position = Vector2( 568, 528 )
+scale = Vector2( 0.0488488, 0.0488488 )
+texture = ExtResource( 7 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 568, 544 )
+
+[node name="BulletManager" type="Node2D" parent="."]
+position = Vector2( 544, 260 )
+script = ExtResource( 2 )
+
+[node name="Score" parent="." instance=ExtResource( 5 )]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Path2D_Enemy1" parent="Path2D" instance=ExtResource( 4 )]
+rotation = 0.375246
+rotate = false
+runSpeed = 60
+
+[node name="Marks" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Marks"]
+
+[node name="Label" type="Label" parent="Marks/CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

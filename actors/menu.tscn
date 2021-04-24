@@ -1,0 +1,266 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/menu.gd" type="Script" id=1]
+[ext_resource path="res://Image/papan.png" type="Texture" id=2]
+[ext_resource path="res://Font/Asdonuts.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Image/tower.png" type="Texture" id=4]
+[ext_resource path="res://scripts/button.gd" type="Script" id=5]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 31
+outline_color = Color( 0.0745098, 0.0666667, 0.0666667, 1 )
+font_data = ExtResource( 3 )
+
+[node name="container" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.129412, 0.129412, 0.129412, 0.203922 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+script = ExtResource( 6 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MarginContainer"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 904.0
+margin_bottom = 520.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer/HBoxContainer"]
+margin_right = 300.0
+margin_bottom = 440.0
+alignment = 1
+
+[node name="title" type="TextureRect" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 14.0
+margin_right = 300.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 300, 100 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+margin_bottom = 50.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/title/MarginContainer"]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 180.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lonely Tower"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 118.0
+margin_right = 300.0
+margin_bottom = 426.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 50.0
+margin_right = 250.0
+margin_bottom = 308.0
+alignment = 1
+
+[node name="play" type="TextureRect" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/MarginContainer" groups=[
+"menu_label",
+]]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 180.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
+align = 1
+
+[node name="Button" type="Button" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 100 )
+expand_icon = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="leaderboard" type="TextureRect" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 200.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 200, 100 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+margin_bottom = 50.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/MarginContainer" groups=[
+"menu_label",
+]]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 180.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Leaderboard"
+align = 1
+
+[node name="Button2" type="Button" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard"]
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 100 )
+expand_icon = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="setting" type="TextureRect" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 208.0
+margin_right = 200.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 200, 100 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+margin_bottom = 50.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/MarginContainer" groups=[
+"menu_label",
+]]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 180.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Setting"
+align = 1
+
+[node name="Button2" type="Button" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting"]
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 100 )
+expand_icon = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -434.581
+margin_top = -386.56
+margin_right = 90.4187
+margin_bottom = 313.44
+rect_min_size = Vector2( 525, 700 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/Button" to="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/Button2" to="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/Button2" method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/Button2" to="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/Button2" method="_on_Button_pressed"]
