@@ -1,0 +1,1 @@
+This is my first try to use Godot Engine to create game. MANY-many bugssss
