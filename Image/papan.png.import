@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/papan.png-b89272e8f63991324e3e05d4f7b67cba.stex"
+path="res://.import/papan.png-fee5addd02fd53718443fdda8b04a2c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Image/papan.png"
-dest_files=[ "res://.import/papan.png-b89272e8f63991324e3e05d4f7b67cba.stex" ]
+source_file="res://image/papan.png"
+dest_files=[ "res://.import/papan.png-fee5addd02fd53718443fdda8b04a2c9.stex" ]
 
 [params]
 

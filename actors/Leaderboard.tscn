@@ -1,0 +1,311 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Image/papan.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Leaderboard.gd" type="Script" id=2]
+[ext_resource path="res://Font/Asdonuts.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 31
+outline_color = Color( 0.0745098, 0.0666667, 0.0666667, 1 )
+font_data = ExtResource( 3 )
+
+[node name="container" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.129412, 0.129412, 0.129412, 0.203922 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 64.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+margin_right = 54.0
+margin_bottom = 54.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer2/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.0
+margin_top = -27.0
+margin_right = 27.0
+margin_bottom = 27.0
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 904.0
+margin_bottom = 700.0
+
+[node name="title" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+margin_right = 784.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 784, 100 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+margin_bottom = 50.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/title/MarginContainer"]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 180.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Leaderboard"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 784.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 300, 0 )
+alignment = 1
+
+[node name="player" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 784.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 784, 100 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/player"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/player/MarginContainer" groups=[
+"menu_label",
+]]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 764.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 208.0
+margin_right = 784.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 300, 0 )
+alignment = 1
+
+[node name="player" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 784.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 784, 100 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/player"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/player/MarginContainer" groups=[
+"menu_label",
+]]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 764.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
+align = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 312.0
+margin_right = 784.0
+margin_bottom = 412.0
+rect_min_size = Vector2( 300, 0 )
+alignment = 1
+
+[node name="player" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+margin_right = 784.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 784, 100 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/player"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/player/MarginContainer" groups=[
+"menu_label",
+]]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 764.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
+align = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 416.0
+margin_right = 784.0
+margin_bottom = 516.0
+rect_min_size = Vector2( 300, 0 )
+alignment = 1
+
+[node name="player" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+margin_right = 784.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 784, 100 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4/player"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/player/MarginContainer" groups=[
+"menu_label",
+]]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 764.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
+align = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 520.0
+margin_right = 784.0
+margin_bottom = 620.0
+rect_min_size = Vector2( 300, 0 )
+alignment = 1
+
+[node name="player" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+margin_right = 784.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 784, 100 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer5/player"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5/player/MarginContainer" groups=[
+"menu_label",
+]]
+margin_left = 20.0
+margin_top = 31.0
+margin_right = 764.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Play"
+align = 1

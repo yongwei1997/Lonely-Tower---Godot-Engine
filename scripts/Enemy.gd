@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 export (int) var weapon_damage = 30
 
-onready var health_stat = $Health
+onready var health_stat = preload("res://actors/Health.tscn")
 onready var ai = $AI
 onready var weapon = $Weapon
 onready var score = $Score

@@ -3,7 +3,7 @@ extends Control
 onready var titleSize = 20
 onready var labelSize = 31
 
-var scenes = ['1', '2', '3']
+var scenes = ['res://actors/Main.tscn', 'res://actors/Leaderboard.tscn', '']
 
 func _ready():
 	setFontSize()

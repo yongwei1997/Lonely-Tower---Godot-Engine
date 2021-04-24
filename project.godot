@@ -39,6 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mini Pro"
+run/main_scene="res://actors/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
