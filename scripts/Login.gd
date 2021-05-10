@@ -1,9 +1,9 @@
 extends Button
 
-const API_KEY  = 'AIzaSyCvXivVyYJpT3A0MsR15vrAKwfL6yP5RmI'
 
-const signUp_endpoint := 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + API_KEY
-const signIn_endpoint := 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + API_KEY
+
+const signUp_endpoint := 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + Session.API_KEY
+const signIn_endpoint := 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + Session.API_KEY
 
 var current_token := ""
 
@@ -12,7 +12,15 @@ onready var http2 : HTTPRequest = get_node("../HTTPRequest2")
 onready var email : LineEdit = get_node("../../HBoxContainer2/LineEdit")
 
 func _on_Button_pressed():
-	signUp(email.get_text(), http)
+	if Session.isLogin == true:
+		Session.isLogin = false
+		Session.userInfo.clear()
+		Session.profile.name = {}
+		Session.profile.highest = 0
+		get_tree().get_root().get_child(3).queue_free()
+		
+	else:
+		signUp(email.get_text(), http)
 	
 func _get_token_id_from_result(result: Array) -> String:
 	var result_body := JSON.parse(result[3].get_string_from_ascii()).result as Dictionary
@@ -41,6 +49,7 @@ func signIn(email: String, http: HTTPRequest) -> void:
 
 func getUserInfo(result: Array) -> Dictionary:
 	var result_body := JSON.parse(result[3].get_string_from_ascii()).result as Dictionary
+	print(result_body)
 	return {
 		"token": result_body.idToken,
 		"id": result_body.localId

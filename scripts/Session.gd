@@ -6,6 +6,7 @@ var profile = {
 	"name" : {}
 }
 
+const API_KEY  = 'AIzaSyCvXivVyYJpT3A0MsR15vrAKwfL6yP5RmI'
 const PROJECT_ID = 'lonelytower-7abdd'
 const firestore_endpoint := 'https://firestore.googleapis.com/v1/projects/' + PROJECT_ID + '/databases/(default)/documents/'
 
@@ -16,7 +17,9 @@ func _ready():
 
 func setInfo(val: Dictionary):
 	userInfo = val
-	getDocument("users/" + userInfo.id, http)
+	
+	if userInfo != {}:
+		getDocument("users/" + userInfo.id, http)
 
 func getDocument(path: String, _http: HTTPRequest) -> void:
 	var url := firestore_endpoint + path
@@ -30,7 +33,6 @@ func _on_request_completed(result: int, response_code: int, headers: PoolStringA
 		
 	else:		
 		saveDocument("users?documentId=" + userInfo.id, profile, http)
-#
 
 func getRequestHeaders() -> PoolStringArray:
 	return PoolStringArray([
@@ -56,3 +58,4 @@ func updateDocument(path: String, fields: Dictionary, http: HTTPRequest) -> void
 #	var url = firestore_endpoint + path
 #	http.request(url, getRequestHeaders(), false, HTTPClient.METHOD_DELETE)
 #
+
