@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Button.gd" type="Script" id=2]
 [ext_resource path="res://Image/papan.png" type="Texture" id=3]
 [ext_resource path="res://Image/tower.png" type="Texture" id=4]
 [ext_resource path="res://Font/Asdonuts.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://image/papan.png" type="Texture" id=6]
+[ext_resource path="res://font/Asdonuts.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://scripts/Google.gd" type="Script" id=8]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends CanvasLayer
@@ -30,6 +33,10 @@ size = 31
 outline_color = Color( 0.0745098, 0.0666667, 0.0666667, 1 )
 font_data = ExtResource( 5 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 31
+font_data = ExtResource( 7 )
+
 [node name="container" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -38,7 +45,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Container" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Container"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.129412, 0.129412, 0.129412, 0.203922 )
@@ -46,10 +55,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainMenu" type="CanvasLayer" parent="."]
+[node name="MainMenu" type="CanvasLayer" parent="Container"]
 script = SubResource( 1 )
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="Container/MainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 120
@@ -60,18 +69,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/MainMenu/MarginContainer"]
 margin_left = 120.0
 margin_top = 80.0
 margin_right = 904.0
 margin_bottom = 520.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer"]
 margin_right = 300.0
 margin_bottom = 440.0
 alignment = 1
 
-[node name="title" type="TextureRect" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="title" type="TextureRect" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 14.0
 margin_right = 300.0
 margin_bottom = 114.0
@@ -79,7 +88,7 @@ rect_min_size = Vector2( 300, 100 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/title"]
+[node name="MarginContainer" type="MarginContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/title"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -96,7 +105,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/title/MarginContainer"]
+[node name="Label" type="Label" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/title/MarginContainer"]
 margin_left = 20.0
 margin_top = 31.0
 margin_right = 180.0
@@ -106,19 +115,19 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Lonely Tower"
 align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 118.0
 margin_right = 300.0
 margin_bottom = 426.0
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 margin_left = 50.0
 margin_right = 250.0
 margin_bottom = 308.0
 alignment = 1
 
-[node name="play" type="TextureRect" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="play" type="TextureRect" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 200.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
@@ -128,7 +137,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play"]
+[node name="MarginContainer" type="MarginContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 20
@@ -139,7 +148,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/MarginContainer" groups=[
+[node name="Label" type="Label" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/MarginContainer" groups=[
 "menu_label",
 ]]
 margin_left = 20.0
@@ -151,7 +160,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Play"
 align = 1
 
-[node name="Button" type="Button" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play"]
+[node name="Button" type="Button" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play"]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -162,7 +171,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="leaderboard" type="TextureRect" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="leaderboard" type="TextureRect" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 104.0
 margin_right = 200.0
 margin_bottom = 204.0
@@ -173,7 +182,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard"]
+[node name="MarginContainer" type="MarginContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -190,7 +199,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/MarginContainer" groups=[
+[node name="Label" type="Label" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/MarginContainer" groups=[
 "menu_label",
 ]]
 margin_left = 20.0
@@ -202,7 +211,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Leaderboard"
 align = 1
 
-[node name="Button2" type="Button" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard"]
+[node name="Button2" type="Button" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard"]
 modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -213,7 +222,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="setting" type="TextureRect" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="setting" type="TextureRect" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 208.0
 margin_right = 200.0
 margin_bottom = 308.0
@@ -224,7 +233,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting"]
+[node name="MarginContainer" type="MarginContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -241,7 +250,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/MarginContainer" groups=[
+[node name="Label" type="Label" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/MarginContainer" groups=[
 "menu_label",
 ]]
 margin_left = 20.0
@@ -253,7 +262,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Setting"
 align = 1
 
-[node name="Button2" type="Button" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting"]
+[node name="Button2" type="Button" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting"]
 modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -264,15 +273,63 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="Container/MainMenu"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -210.0
+margin_top = -50.0
+margin_right = -10.0
+margin_bottom = -9.99994
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Container/MainMenu/MarginContainer2"]
+margin_right = 200.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/MainMenu/MarginContainer2/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Container/MainMenu/MarginContainer2/TextureRect/MarginContainer"]
+margin_top = 1.0
+margin_right = 200.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Login with Email"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="Container/MainMenu/MarginContainer2/TextureRect"]
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Container"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -434.581
-margin_top = -386.56
-margin_right = 90.4187
-margin_bottom = 313.44
+margin_left = 549.419
+margin_top = -106.56
+margin_right = 1074.42
+margin_bottom = 593.44
 rect_min_size = Vector2( 525, 700 )
 texture = ExtResource( 4 )
 expand = true
@@ -280,6 +337,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/Button" to="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/Button" method="_on_Button_pressed"]
-[connection signal="pressed" from="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/Button2" to="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/Button2" method="_on_Button_pressed"]
-[connection signal="pressed" from="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/Button2" to="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/Button2" method="_on_Button_pressed"]
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/Button" to="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/Button2" to="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/Button2" method="_on_Button_pressed"]
+[connection signal="pressed" from="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/Button2" to="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/Button2" method="_on_Button_pressed"]
+[connection signal="pressed" from="Container/MainMenu/MarginContainer2/TextureRect/Button" to="Container/MainMenu/MarginContainer2/TextureRect/Button" method="_on_Button_pressed"]
