@@ -50,7 +50,3 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		
 		lists.get_child(i).get_child(0).get_child(0).get_child(0).text = str(i+1) + ". " + str(item.document.fields.name.stringValue)
 		lists.get_child(i).get_child(0).get_child(0).get_child(1).text = str(item.document.fields.highest.integerValue) + " pts"
-		
-
-
-#	print(typeof(result_body))

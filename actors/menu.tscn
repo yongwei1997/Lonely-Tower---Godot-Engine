@@ -81,10 +81,10 @@ margin_bottom = 440.0
 alignment = 1
 
 [node name="title" type="TextureRect" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 14.0
+margin_top = 12.0
 margin_right = 300.0
-margin_bottom = 114.0
-rect_min_size = Vector2( 300, 100 )
+margin_bottom = 92.0
+rect_min_size = Vector2( 300, 80 )
 texture = ExtResource( 3 )
 expand = true
 
@@ -116,21 +116,21 @@ text = "Lonely Tower"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 118.0
+margin_top = 96.0
 margin_right = 300.0
-margin_bottom = 426.0
+margin_bottom = 428.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 margin_left = 50.0
 margin_right = 250.0
-margin_bottom = 308.0
+margin_bottom = 332.0
 alignment = 1
 
 [node name="play" type="TextureRect" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 200.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 200, 100 )
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 80 )
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -152,9 +152,9 @@ __meta__ = {
 "menu_label",
 ]]
 margin_left = 20.0
-margin_top = 31.0
+margin_top = 21.0
 margin_right = 180.0
-margin_bottom = 68.0
+margin_bottom = 58.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Play"
@@ -162,9 +162,54 @@ align = 1
 
 [node name="Button" type="Button" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play"]
 modulate = Color( 1, 1, 1, 0 )
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 80 )
+expand_icon = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="achievement" type="TextureRect" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 200, 80 )
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/achievement"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 200, 100 )
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/achievement/MarginContainer" groups=[
+"menu_label",
+]]
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 180.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Achievements"
+align = 1
+
+[node name="Button2" type="Button" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/achievement"]
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 80 )
 expand_icon = true
 script = ExtResource( 2 )
 __meta__ = {
@@ -172,10 +217,10 @@ __meta__ = {
 }
 
 [node name="leaderboard" type="TextureRect" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 104.0
+margin_top = 168.0
 margin_right = 200.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 200, 100 )
+margin_bottom = 248.0
+rect_min_size = Vector2( 200, 80 )
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -215,7 +260,7 @@ align = 1
 modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 200, 100 )
+rect_min_size = Vector2( 200, 80 )
 expand_icon = true
 script = ExtResource( 2 )
 __meta__ = {
@@ -223,10 +268,10 @@ __meta__ = {
 }
 
 [node name="setting" type="TextureRect" parent="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 208.0
+margin_top = 252.0
 margin_right = 200.0
-margin_bottom = 308.0
-rect_min_size = Vector2( 200, 100 )
+margin_bottom = 332.0
+rect_min_size = Vector2( 200, 80 )
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -266,7 +311,7 @@ align = 1
 modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 200, 100 )
+rect_min_size = Vector2( 200, 80 )
 expand_icon = true
 script = ExtResource( 2 )
 __meta__ = {
@@ -340,6 +385,7 @@ __meta__ = {
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/Button" to="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/play/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/achievement/Button2" to="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/achievement/Button2" method="_on_Button_pressed"]
 [connection signal="pressed" from="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/Button2" to="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/leaderboard/Button2" method="_on_Button_pressed"]
 [connection signal="pressed" from="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/Button2" to="Container/MainMenu/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/setting/Button2" method="_on_Button_pressed"]
 [connection signal="pressed" from="Container/MainMenu/MarginContainer2/TextureRect/Button" to="Container/MainMenu/MarginContainer2/TextureRect/Button" method="_on_Button_pressed"]

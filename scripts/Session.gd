@@ -3,7 +3,19 @@ extends Node
 var isLogin = false
 var userInfo = Dictionary() setget setInfo
 var profile = {
-	"name" : {}
+	"name" : {},
+	"email": {"stringValue": {}},
+	"highest": {"integerValue": 0},
+	"achievements": {"arrayValue": {"values":[
+		
+		{"booleanValue": false},
+		{"booleanValue": false},
+		{"booleanValue": false},
+		{"booleanValue": false},
+		{"booleanValue": false}
+		
+	]}}
+
 }
 
 const API_KEY  = 'AIzaSyCvXivVyYJpT3A0MsR15vrAKwfL6yP5RmI'
@@ -17,7 +29,7 @@ func _ready():
 
 func setInfo(val: Dictionary):
 	userInfo = val
-	
+	print(userInfo)
 	if userInfo != {}:
 		getDocument("users/" + userInfo.id, http)
 
@@ -29,9 +41,16 @@ func _on_request_completed(result: int, response_code: int, headers: PoolStringA
 	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary 
 	
 	if result_body.has("fields"):
-		pass
+		
+		profile.name = result_body.fields.name
+		profile.highest = result_body.fields.highest
+		profile.email = result_body.fields.email
+		profile.achievements = result_body.fields.achievements
+		print(profile)
 		
 	else:		
+		profile.name = {"stringValue": profile.email.stringValue.rsplit("@", true)[0]}
+		profile.highest = {"integerValue": 0}
 		saveDocument("users?documentId=" + userInfo.id, profile, http)
 
 func getRequestHeaders() -> PoolStringArray:
@@ -43,9 +62,9 @@ func getRequestHeaders() -> PoolStringArray:
 func saveDocument(path: String, fields: Dictionary, http: HTTPRequest) -> void:
 	var document:= { "fields": fields}
 	var body := to_json(document)
+	print(body)
 	var url := firestore_endpoint + path
 	var res = http.request(url, getRequestHeaders(), true, HTTPClient.METHOD_POST, body)
-	print(res)
 
 func updateDocument(path: String, fields: Dictionary, http: HTTPRequest) -> void:
 	var document := { "fields": fields}

@@ -16,7 +16,7 @@ func _on_Button_pressed():
 		Session.isLogin = false
 		Session.userInfo.clear()
 		Session.profile.name = {}
-		Session.profile.highest = 0
+		Session.profile.highest = {}
 		get_tree().get_root().get_child(3).queue_free()
 		
 	else:
@@ -49,7 +49,7 @@ func signIn(email: String, http: HTTPRequest) -> void:
 
 func getUserInfo(result: Array) -> Dictionary:
 	var result_body := JSON.parse(result[3].get_string_from_ascii()).result as Dictionary
-	print(result_body)
+
 	return {
 		"token": result_body.idToken,
 		"id": result_body.localId
@@ -57,23 +57,16 @@ func getUserInfo(result: Array) -> Dictionary:
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii())
-	
-	var isExists = false
-	
+		
 	if response_code != 200:
 		print(response_body.result.error.message)
 		
 		if response_body.result.error.message == "EMAIL_EXISTS":
-			isExists = true
 			signIn(email.get_text(), http)
 		
 	else:
-		print("success")
-		
-		if isExists == false:
-			Session.profile.name = {"stringValue": email.get_text().rsplit("@", true)[0]}
-			Session.profile.highest = {"integerValue": 0}
-			print('asdf')
+		print("success")	
+		Session.profile.email.stringValue = email.get_text()
 		Session.isLogin = true
 		get_tree().get_root().get_child(3).queue_free()
 
