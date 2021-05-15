@@ -11,5 +11,5 @@ func _ready():
 func _on_Button_pressed():
 	sound.play()
 	yield(sound, "finished")
-	
-	get_tree().get_root().get_child(3).queue_free()
+	get_tree().get_root().get_child(4).queue_free()
+

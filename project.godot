@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Player.gd"
 }, {
-"base": "CanvasLayer",
-"class": "Score",
-"language": "GDScript",
-"path": "res://scripts/Score.gd"
-}, {
 "base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
@@ -32,7 +27,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Bullet": "",
 "Player": "",
-"Score": "",
 "Weapon": ""
 }
 
@@ -46,6 +40,7 @@ config/icon="res://icon.png"
 
 GlobalSignal="*res://scripts/GlobalSignal.gd"
 Session="*res://scripts/Session.gd"
+Score="*res://scripts/Score.gd"
 
 [display]
 

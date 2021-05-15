@@ -3,9 +3,17 @@ extends Control
 onready var titleSize = 20
 onready var labelSize = 31
 
-var scenes = ['res://actors/Main.tscn', 'res://actors/Achievement.tscn', 'res://actors/Leaderboard.tscn', '']
+var scenes = ['res://actors/Main.tscn', 'res://actors/Achievement.tscn', 'res://actors/Leaderboard.tscn', 'res://actors/Lose.tscn']
+
+var bgm = preload("res://audio/menu_bgm.mp3")
+var sound = AudioStreamPlayer.new()
 
 func _ready():
+	bgm.loop = true
+	sound.set_stream(bgm)
+	self.add_child(sound)
+	sound.play()
+	
 	setFontSize()
 	onClickHandler()
 

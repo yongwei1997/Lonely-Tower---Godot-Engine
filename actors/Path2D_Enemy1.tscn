@@ -5,10 +5,10 @@
 
 [node name="Path2D_Enemy1" type="PathFollow2D"]
 position = Vector2( 48, 48 )
-rotation = 0.828849
+rotate = false
 loop = false
 script = ExtResource( 1 )
-runSpeed = 40
+runSpeed = 70
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-rotation = -0.828849
+position = Vector2( 0.235962, 0 )

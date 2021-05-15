@@ -17,7 +17,7 @@ func _on_Button_pressed():
 		Session.userInfo.clear()
 		Session.profile.name = {}
 		Session.profile.highest = {}
-		get_tree().get_root().get_child(3).queue_free()
+		get_tree().get_root().get_child(4).queue_free()
 		
 	else:
 		signUp(email.get_text(), http)
@@ -68,5 +68,5 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		print("success")	
 		Session.profile.email.stringValue = email.get_text()
 		Session.isLogin = true
-		get_tree().get_root().get_child(3).queue_free()
+		get_tree().get_root().get_child(4).queue_free()
 

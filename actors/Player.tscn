@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Image/tower.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://actors/Weapon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/Bullet.tscn" type="PackedScene" id=4]
@@ -15,14 +14,8 @@ extents = Vector2( 24, 24 )
 position = Vector2( 80, 64 )
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1, -9 )
-scale = Vector2( 0.035072, 0.035072 )
-texture = ExtResource( 1 )
-region_rect = Rect2( 347.888, -0.733641, 41.316, 44.1858 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 10, 10 )
 shape = SubResource( 1 )
 
 [node name="Health" parent="." instance=ExtResource( 5 )]

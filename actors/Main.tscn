@@ -1,51 +1,177 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/BulletManager.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=3]
-[ext_resource path="res://actors/Path2D_Enemy1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/Score.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/button.gd" type="Script" id=4]
 [ext_resource path="res://scripts/SpawnD.gd" type="Script" id=6]
 [ext_resource path="res://Image/tower.png" type="Texture" id=7]
+[ext_resource path="res://Image/papan.png" type="Texture" id=8]
+[ext_resource path="res://Font/Asdonuts.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 48, 48, 0, 0, 0, 0, 60, 67.1087, 0, 0, 0, 0, 136, 144, 0, 0, 0, 0, 240, 192, 0, 0, 0, 0, 304, 208, 0, 0, 0, 0, 368, 224, 0, 0, 0, 0, 440, 248, 0, 0, 0, 0, 496, 256, 0, 0, 0, 0, 696, 320, 0, 0, 0, 0, 744, 360, 0, 0, 0, 0, 800, 440, 0, 0, 0, 0, 864, 536, 0, 0, 0, 0, 784, 568, 0, 0, 0, 0, 688, 552, 0, 0, 0, 0, 600, 544 )
+"points": PoolVector2Array( 0, 0, 0, 0, 48, 48, 0, 0, 0, 0, 60, 67.1087, -43.4061, -16.6489, 43.4061, 16.6489, 129.526, 150.896, -63.3086, -21.6197, 63.3086, 21.6197, 326.199, 278.137, 0, 0, 0, 0, 557.248, 316.669 )
 }
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.169113, 3.96814, -15.3507, 15.6844, 15.3507, -15.6844, 102.352, -114.769, -54.3947, 10.345, 54.3947, -10.345, 329.845, -148.838, 0, 0, 0, 0, 511.683, -252.104 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 111.305, -6.34309, 65.664, 5.05108, -65.664, -5.05108, -69.0238, 80.2468, 25.8166, -17.3982, -25.8166, 17.3982, -276.914, 92.2332, 0, 0, 0, 0, -404.994, 103.32 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 66.5956, 8.32445, -66.5956, -8.32445, 1013.62, 669.919, 57.6765, 15.4597, -57.6765, -15.4597, 801.251, 539.665, 35.0816, 13.0813, -35.0816, -13.0813, 670.405, 433.066, 0, 0, 0, 0, 572.515, 388.246 )
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 9 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Tower" type="Sprite" parent="."]
-position = Vector2( 568, 528 )
-scale = Vector2( 0.0488488, 0.0488488 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 520.331, 308.427 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 7 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 568, 544 )
+[node name="Player" parent="Sprite" instance=ExtResource( 1 )]
+position = Vector2( -52.5322, 483.97 )
+scale = Vector2( 1.84242, 1.84242 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 position = Vector2( 544, 260 )
 script = ExtResource( 2 )
 
-[node name="Score" parent="." instance=ExtResource( 5 )]
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource( 1 )
+[node name="Node2D" type="Node2D" parent="."]
 script = ExtResource( 6 )
+spawnTime = 1
 
-[node name="Path2D_Enemy1" parent="Path2D" instance=ExtResource( 4 )]
-rotation = 0.375246
-rotate = false
-runSpeed = 60
+[node name="Path2D" type="Path2D" parent="Node2D" groups=[
+"left",
+]]
+position = Vector2( -87.5849, 45.3415 )
+curve = SubResource( 1 )
 
-[node name="Marks" type="Node2D" parent="."]
+[node name="Path2D2" type="Path2D" parent="Node2D" groups=[
+"left",
+]]
+position = Vector2( -33.5643, 652.752 )
+curve = SubResource( 2 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Marks"]
+[node name="Path2D3" type="Path2D" parent="Node2D" groups=[
+"right",
+]]
+position = Vector2( 966.948, 255.492 )
+curve = SubResource( 3 )
 
-[node name="Label" type="Label" parent="Marks/CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Path2D4" type="Path2D" parent="Node2D" groups=[
+"right",
+]]
+position = Vector2( -12.9515, 4.64822 )
+curve = SubResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 11.5052
+margin_top = 15.0064
+margin_right = 1011.51
+margin_bottom = 65.0064
+custom_constants/separation = 512
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 2.0
+margin_right = 336.0
+margin_bottom = 50.0
+custom_constants/separation = 34
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 50 )
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score: 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+margin_left = 134.0
+margin_right = 334.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer/TextureRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tower HP: 200"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+margin_left = 848.0
+margin_right = 998.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 150, 50 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Button" type="Button" parent="HBoxContainer/TextureRect"]
+modulate = Color( 0.286275, 0.0823529, 0.0823529, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Back to Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="HBoxContainer/TextureRect/Button" to="HBoxContainer/TextureRect/Button" method="_on_Button_pressed"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/onlyObjects_retina.png-65cad9c3bd4ba323bc0348bbd4531189.stex"
+path="res://.import/onlyObjects_retina.png-962411fcefe6d56099ad43cfbca5ba57.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/onlyObjects_retina.png"
-dest_files=[ "res://.import/onlyObjects_retina.png-65cad9c3bd4ba323bc0348bbd4531189.stex" ]
+source_file="res://Image/onlyObjects_retina.png"
+dest_files=[ "res://.import/onlyObjects_retina.png-962411fcefe6d56099ad43cfbca5ba57.stex" ]
 
 [params]
 

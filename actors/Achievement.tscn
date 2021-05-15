@@ -170,12 +170,12 @@ margin_top = 1.0
 margin_right = 242.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 200, 0 )
-hint_tooltip = "Complete a round without the tower being damaged
+hint_tooltip = "Score 100 points
 "
 mouse_filter = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Total Defenese"
+text = "Goblin Slayer"
 
 [node name="checked" type="Label" parent="Control/VBoxContainer/player1/MarginContainer/HBoxContainer" groups=[
 "menu_label",
@@ -227,12 +227,11 @@ margin_top = 1.0
 margin_right = 242.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 200, 0 )
-hint_tooltip = "Survive a round with tower’s HP below 10%
-"
+hint_tooltip = "Score 500  points"
 mouse_filter = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Still Standing"
+text = "The Collector"
 
 [node name="checked" type="Label" parent="Control/VBoxContainer/player2/MarginContainer/HBoxContainer" groups=[
 "menu_label",
@@ -284,7 +283,7 @@ margin_top = 1.0
 margin_right = 242.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 200, 0 )
-hint_tooltip = "Score 10000 points "
+hint_tooltip = "Score 1000 points "
 mouse_filter = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

@@ -1,39 +1,124 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Image/Goblin.png" type="Texture" id=1]
+[ext_resource path="res://Image/Goblin-attack-sprite.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://actors/Health.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/Weapon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/AI.gd" type="Script" id=5]
-[ext_resource path="res://actors/Bullet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/Score.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Image/Goblin_walk_sprite_.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 24 )
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 256, 256 )
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 49.6677
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 256, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 512, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 768, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1024, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1280, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1536, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1792, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 512, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 768, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1024, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1280, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1536, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1792, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=18]
+radius = 23.7797
+
+[sub_resource type="CircleShape2D" id=19]
+radius = 23.842
 
 [node name="Enemy" type="KinematicBody2D"]
+scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 2 )
 
-[node name="Weapon" parent="." instance=ExtResource( 4 )]
-position = Vector2( -2.50447, -1.81524 )
-rotation = 3.14159
-Bullet = ExtResource( 6 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2.45211, -3.22189 )
-scale = Vector2( 0.0454309, 0.0454309 )
-texture = ExtResource( 1 )
-region_rect = Rect2( 346.387, 43.0807, 39.7082, 44.6449 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 17 )
+speed_scale = 3.0
+playing = true
 
 [node name="Health" parent="." instance=ExtResource( 3 )]
 
-[node name="Score" parent="." instance=ExtResource( 7 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 18 )
 
 [node name="AI" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -43,7 +128,7 @@ script = ExtResource( 5 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDetection"]
-shape = SubResource( 2 )
+shape = SubResource( 19 )
 
 [connection signal="body_entered" from="AI/PlayerDetection" to="AI" method="_on_PlayerDetection_body_entered"]
 [connection signal="body_exited" from="AI/PlayerDetection" to="AI" method="_on_PlayerDetection_body_exited"]
